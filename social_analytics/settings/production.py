@@ -28,7 +28,7 @@ SECRET_KEY = '5dgi=r^=m0-!5stl&7*z=2zqj$cb%h47#!gqsp8jdsnd@n_lro'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://social-analytics-dev.herokuapp.com/','bluedoor.io']
 
 
 # Application definition
@@ -83,6 +83,10 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
