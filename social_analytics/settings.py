@@ -28,7 +28,7 @@ SECRET_KEY = '5dgi=r^=m0-!5stl&7*z=2zqj$cb%h47#!gqsp8jdsnd@n_lro'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['social-analytics-dev.herokuapp.com','https://social-analytics-dev.herokuapp.com/','bluedoor.io']
+ALLOWED_HOSTS = ['*.thooni.com','social-analytics-dev.herokuapp.com','https://social-analytics-dev.herokuapp.com/','bluedoor.io']
 
 
 # Application definition
