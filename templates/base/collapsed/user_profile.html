@@ -17,7 +17,7 @@
     <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <div class="media align-items-center">
         <span class="avatar avatar-sm rounded-circle">
-          <img alt="Image placeholder" src=" {{request.user.profile.profile_picture}}">
+          <!-- <img alt="Image placeholder" src=" {{request.user.profile.profile_picture}}"> -->
         </span>
       </div>
     </a>
@@ -26,7 +26,7 @@
         <h6 class="text-overflow m-0">{{request.user.profile.full_name}}</h6>
       </div>
       
-      <a href="{% if user.is_authenticated %}{% url 'accounts:profile-detail' user.id %}{% endif %}" class="dropdown-item">
+      <!-- <a href="{% if user.is_authenticated %}{% url 'accounts:profile-detail' user.id %}{% endif %}" class="dropdown-item"> -->
         <i class="ni ni-single-02"></i>
         <span>My profile</span>
       </a>
