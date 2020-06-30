@@ -1,0 +1,108 @@
+<!--
+
+=========================================================
+* Argon Dashboard - v1.1.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title >
+    bluedoor.io
+  </title>
+  <!-- Favicon-->
+  <link href=" {% static 'assets/img/brand/favicon.png' %}" rel="icon" type="image/png">  
+  <!-- Fonts -->
+  {% include 'base/fonts.html' %}
+  <!-- Icons -->
+  {% include 'base/icons.html' %}
+  <!-- CSS Files -->
+  {% include 'base/css.html' %}
+  
+</head>
+
+<body class="">
+  <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Brand 
+      <a class="navbar-brand pt-0" href="{% url 'dashboard:dashboard'%}">
+        <span class="text-primary">         <img src="{% static 'assets/img/brand/logo.png' %}"> </span>
+      </a> -->
+      <h1 style="font-family:'Montserrat', sans-serif;color: #5473E8;">
+        <a href="{% url 'dashboard:dashboard'%}">bluedoor.io</a>
+      </h1>      
+      <!-- Collapsed User Profile-->
+        {% include 'base/collapsed/user_profile.html' %}
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <!-- Collapse header -->
+      {% include 'base/collapsed/header.html' %}
+        <!-- Collapsed Search -->
+      {% include 'base/collapsed/search.html' %}
+
+        <!-- Collapsed NAV -->
+      {% include 'base/collapsed/nav.html' %}
+
+
+
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+      <div class="container-fluid">
+        <!-- Brand -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"> 
+        {% block app_name %}
+        {% endblock app_name %}
+        </a>
+        <!-- Form -->
+        {% include 'base/main/search.html' %}
+        <!-- User -->
+        {% include 'base/main/user_profile.html' %}
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+    <div class="header bg-gradient-primary pt-5 pt-md-8">
+          {% block header %}{% endblock header %}
+
+
+    </div>
+
+          <div class="container-fluid mt-5">
+
+
+
+        <!-- Block Contents -->
+
+          {% block content %}{% endblock content %}
+        <!-- End Contents -->
+
+      </div>
+  </div>
+
+<!--   Java script    -->
+{% include 'base/js.html' %}
+{% include 'base/snippets/forms/js/loqate.html' %}
+
+</body>
+
+</html>

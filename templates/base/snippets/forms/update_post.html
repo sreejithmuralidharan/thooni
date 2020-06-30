@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <form method="post" enctype='multipart/form-data'>{% csrf_token %}
+        <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="largeModalLabel">
+                        {{ title }}
+                        </h5>
+        
+                    </div>
+                    <div class="modal-body">          
+                        {{ form |crispy}}
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Update" name="update" class="btn btn-primary">
+                        <input type="submit" value="Post" name="post_document"  class="btn btn-icon btn-3 btn-warning">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+{% endblock content %}

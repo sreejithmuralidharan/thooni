@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class = "row justify-content-center">
+        <div class="card col-xl-8 mb-5 mb-xl-0">
+            {% if error %}
+                <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <span class="alert-inner--text"><strong>Error</strong> {{error}}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+            <div class="card-body">
+                <h3 class="card-title">
+                    <div>
+                        <span class="fas fa-trash-alt"></span>
+                        <span >Delete {{ object }}" </span>
+                    </div>
+                </h3>
+                <p class="card-text">
+                    <form method="post">{% csrf_token %}
+                        <p>Are you sure you want to delete "{{ object }}"?</p>
+                        {% if request.GET.next %}
+                            <input type='text' name ="next" value="{{request.GET.next}}">
+                        {% endif %}
+                        <input type="submit" value= "Delete" class="btn btn-danger">
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
