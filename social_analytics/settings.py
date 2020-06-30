@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '5dgi=r^=m0-!5stl&7*z=2zqj$cb%h47#!gqsp8jdsnd@n_lro'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['app.thooni.com','social-analytics-dev.herokuapp.com','https://social-analytics-dev.herokuapp.com/','bluedoor.io']
 
