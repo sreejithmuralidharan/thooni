@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 
     #3rd Party Plugins
     'crispy_forms',
+
+    # Thooni Apps
+    'dashboard',
 ]
 
 MIDDLEWARE = [
