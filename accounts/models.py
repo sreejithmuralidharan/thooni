@@ -7,6 +7,7 @@ from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 from social_analytics import settings
 from django.urls import reverse
+from guardian.shortcuts import assign_perm
 
 class Profile(models.Model):
     user                    =       models.OneToOneField(User, on_delete=models.CASCADE)
