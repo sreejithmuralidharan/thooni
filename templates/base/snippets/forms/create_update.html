@@ -15,7 +15,7 @@
                         {{ form |crispy}}
                     </div>
                     <div class="modal-footer">
-                        <a href=" {% url 'properties:detail' object.id %} " class="btn btn-secondary" name="update" role="button" aria-pressed="true">Cancel</a>
+                        <a href="" class="btn btn-secondary" name="update" role="button" aria-pressed="true">Cancel</a>
                         <input type="submit" value="Update" class="btn btn-primary">
                         {% if post_url %}
                             <a href=" {% url post_url object.id%} " class="btn btn-icon btn-3 btn-warning" name="post_document" type="button" a>
