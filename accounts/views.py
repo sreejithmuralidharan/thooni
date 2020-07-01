@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth import login, authenticate
+from guardian.mixins import PermissionRequiredMixin, PermissionListMixin
+from django.views.generic import DetailView, UpdateView, CreateView
+from .models import Profile
 
-# Create your views here.
+class ProfileDetailView(LoginRequiredMixin, DetailView):
+    model       =       Profile
+    template_name   =   'accounts/profile_detail.html'

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #3rd Party Plugins
     'crispy_forms',
     'django_countries',
+    'phonenumber_field',
 
     # Thooni Apps
     'accounts',

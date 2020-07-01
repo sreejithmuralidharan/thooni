@@ -1,0 +1,71 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid mt-2">
+      <div class="row">
+        <div class="col-xl-8 order-xl-1 mx-auto">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="{{object.profile_picture}}" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
+                <a href="{% url 'accounts:profile-update' object.pk %} " class="btn btn-sm btn-default float-right">edit</a>
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                      <span class="heading">email</span>
+                      <span class="description">{% if object.email %}{{ object.email}}{% endif %}</span>
+                    </div>
+                    <div>
+                      <span class="heading">Phone</span>
+                      <span class="description">{% if object.phone_number %}{{ object.phone_number}}{% endif %}</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <h3>
+                  {{ object.full_name}}<span class="font-weight-light">, 27</span>
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>
+                  {% if object.address1 %}{{ object.address1}}{% endif %}
+                  {% if object.address2 %}, {{ object.address2}}{% endif %}
+                  {% if object.locality %}, {{ object.locality}}{% endif %}
+                  {% if object.region %}, {{ object.region}}{% endif %}
+                  {% if object.postal_code %}, {{ object.postal_code}}{% endif %}
+                  {% if object.country %}, {{ object.country}}{% endif %}
+                </div>
+                <div class="h5 mt-4">
+                  <i class="ni business_briefcase-24 mr-2"></i>{% if object.occupation %}{{ object.occupation}}{% endif %} {% if object.organisation %}  {{ object.organisation}}{% endif %}
+                </div>
+                <hr class="my-4" />
+                <p>
+                  {% if object.about_me %} {{ object.about_me}}{% endif %}
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        </div>
+        </div>
+
+{% endblock content %}
+
