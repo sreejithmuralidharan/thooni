@@ -7,7 +7,7 @@
             <img alt="Image placeholder" src="{{request.user.profile.profile_picture}}">
         </span>
         <div class="media-body ml-2 d-none d-lg-block">
-            <!-- <span class="mb-0 text-sm  font-weight-bold"> {{request.user.profile.full_name}}</span> -->
+            <span class="mb-0 text-sm  font-weight-bold"> {{request.user.profile.full_name}}</span>
         </div>
         </div>
     </a>
@@ -15,7 +15,7 @@
         <div class=" dropdown-header noti-title">
         <h6 class="text-overflow m-0">Welcome!</h6>
         </div>
-        <!-- <a href="{% if user.is_authenticated %}{% url 'accounts:profile-detail' user.id %}{% endif %}" class="dropdown-item"> -->
+        <a href="{% if user.is_authenticated %}{% url 'accounts:profile-detail' user.id %}{% endif %}" class="dropdown-item">
         <i class="ni ni-single-02"></i>
         <span>My profile</span>
         </a>
