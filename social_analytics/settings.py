@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     #3rd Party Plugins
     'crispy_forms',
     'django_countries',
+    'guardian',
     'phonenumber_field',
-
+    
     # Thooni Apps
     'accounts',
     'dashboard',
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'social_analytics.urls'
@@ -147,4 +149,31 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media_root")
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#Guardian settings
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', 
+    'guardian.backends.ObjectPermissionBackend',
+)
+
+ANONYMOUS_USER_NAME = 'AnonymousUser'
+
+ROLLBAR = {
+    'access_token': 'a69146cbdbff4d38ae656da1eb0a3a93',
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'master',
+    'root': BASE_DIR,
+}
+PHONENUMBER_DEFAULT_REGION ='GB'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'login'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'no-reply@dwelling.condos'
