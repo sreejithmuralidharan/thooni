@@ -23,11 +23,11 @@ class Profile(models.Model):
     created_on              =       models.DateTimeField(auto_now_add=True)
     modified_on             =       models.DateTimeField(auto_now=True)
 
-    # class Meta:
-    #     default_permissions = ('add', 'change', 'delete')
-    #     permissions = (
-    #         ('view_profile', 'Can view profile'),
-    #     )
+    class Meta:
+        default_permissions = ('add', 'change', 'delete')
+        permissions = (
+            ('view_profile', 'Can view profile'),
+        )
 
     def __str__(self): 
         return self.user.username
@@ -50,10 +50,10 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     
     if created and instance.username != settings.ANONYMOUS_USER_NAME:
         profile = Profile.objects.create(pk=instance.pk, user=instance)
-        # assign_perm("change_user", instance, instance)
-        # assign_perm('view_profile', instance, profile)
-        # assign_perm('change_profile', instance, profile)
-        # assign_perm('delete_profile', instance, profile)
+        assign_perm("change_user", instance, instance)
+        assign_perm('view_profile', instance, profile)
+        assign_perm('change_profile', instance, profile)
+        assign_perm('delete_profile', instance, profile)
     try:
         instance.profile.save()
     except Exception as e:
