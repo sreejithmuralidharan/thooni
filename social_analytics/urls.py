@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 urlpatterns = [
     path('', include('dashboard.urls'), name='dashboard'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls'), name = 'accounts'),
 ]
 
 if settings.DEBUG:
